@@ -29,35 +29,29 @@ let num = [0, 1, 2];
 // function scoringPrompt(){
 //     let num = input.question('Which scoring algorithm would you like to use?'+ '\n'+ '0 - Simple Soring Method: One point per character' + '\n' + '1 - Vowel Bonus Scoring Method: Vowels are worth 3 points' + '\n' +  '2 - Traditional Scrabble Soring Method: Uses scrabble point system'+ '\n'+'\n'+'Enter 0, 1, or 2'+ '\n');
 // }
-
 let scoringAlgorithms;
-function scoringPrompt(word){
-  let num = input.question('Which scoring algorithm would you like to use?'+ '\n'+ '0 - Simple Soring Method: One point per character' + '\n' + '1 - Vowel Bonus Scoring Method: Vowels are worth 3 points' + '\n' +  '2 - Traditional Scrabble Soring Method: Uses scrabble point system'+ '\n'+'\n'+'Enter 0, 1, or 2'+ '\n');
-  }
-    if(num == 0){
+
+let scorerPrompt = function(word) {
+    let num = input.question('Which scoring algorithm would you like to use?' + '\n' + '0 - Simple Soring Method: One point per character' + '\n' + '1 - Vowel Bonus Scoring Method: Vowels are worth 3 points' + '\n' + '2 - Traditional Scrabble Soring Method: Uses scrabble point system' + '\n' + '\n' + 'Enter 0, 1, or 2' + '\n');
+  if (num == 0) {
     console.log(`Scoring Algorithm Selected:  ${simpleScore}`);
-    console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
-    }
-    if(num == 1){
+    //console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
+  } if (num == 1) {
     console.log(`Scoring Algorithm Selected: ${vowelBonusScore}`);
-    console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
-    }
-    if (num == 2){
+    //console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
+  } if (num == 2) {
     console.log(`Scoring Algorithm Selected: ${newPointStructure}`);
-    console.log(`Scoring Result:` scoringAlgorithms[2].scorerFunction(word));
-    }
-    if (num > 2){
-    return initialPrompt("Incorrect selection. Try Again. Let's play some scrabble!" + "\n" + "Enter a word: ");
-    }
-    if(num == NaN){
+    //console.log(`Scoring Result:` scoringAlgorithms[2].scorerFunction(word));
+  } if (num > 2 || num == NaN) {
     return initialPrompt("Incorrect selection. Try Again. Let's play some scrabble!" + "\n" + "Enter a word: ");
   }
-}
-
-function scorerFunction(){
-
 
 }
+
+
+
+
+
 // JavaScript = 24 points using Scrabble, 10 using Simple Score, and 16 using Bonus Vowels.
 // Scrabble = 14 points using Scrabble, 8 using Simple Score, and 12 using Bonus Vowels.
 // Zox = 19 points using Scrabble, 3 using Simple Score, and 5 using Bonus Vowels.
@@ -90,7 +84,7 @@ let scrabbleScore = function(word) {
     return sum;
 }
 
-const scoringAlgorithms = [simpleScore, vowelScore, scrabbleScore];
+//const scoringAlgorithms = [simpleScore, vowelScore, scrabbleScore];
 
 
 
@@ -102,7 +96,7 @@ function transform() {
 
 function runProgram() {
    initialPrompt();
-   scoringPrompt();
+   scorerPrompt();
    
 }
 
