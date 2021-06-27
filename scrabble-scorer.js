@@ -24,26 +24,28 @@ function initialPrompt(){
   let word = input.question("Let's play some scrabble!" + "\n" + "Enter a word: ");
 } 
 // console.log(initialPrompt(word));
-let num = [0, 1, 2];
+
 
 // function scoringPrompt(){
 //     let num = input.question('Which scoring algorithm would you like to use?'+ '\n'+ '0 - Simple Soring Method: One point per character' + '\n' + '1 - Vowel Bonus Scoring Method: Vowels are worth 3 points' + '\n' +  '2 - Traditional Scrabble Soring Method: Uses scrabble point system'+ '\n'+'\n'+'Enter 0, 1, or 2'+ '\n');
 // }
 let scoringAlgorithms;
 
-let scorerPrompt = function(word) {
+let scorerPrompt = function() {
     let num = input.question('Which scoring algorithm would you like to use?' + '\n' + '0 - Simple Soring Method: One point per character' + '\n' + '1 - Vowel Bonus Scoring Method: Vowels are worth 3 points' + '\n' + '2 - Traditional Scrabble Soring Method: Uses scrabble point system' + '\n' + '\n' + 'Enter 0, 1, or 2' + '\n');
-  if (num == 0) {
-    console.log(`Scoring Algorithm Selected:  ${simpleScore}`);
-    //console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
-  } if (num == 1) {
-    console.log(`Scoring Algorithm Selected: ${vowelBonusScore}`);
-    //console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
-  } if (num == 2) {
-    console.log(`Scoring Algorithm Selected: ${newPointStructure}`);
-    //console.log(`Scoring Result:` scoringAlgorithms[2].scorerFunction(word));
-  } if (num > 2 || num == NaN) {
-    return initialPrompt("Incorrect selection. Try Again. Let's play some scrabble!" + "\n" + "Enter a word: ");
+    
+      if (num == 0) {
+      console.log('Scoring Algorithm Selected: Simple Score');
+      //console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
+        } if (num == 1) {
+        console.log('Scoring Algorithm Selected: Vowel Bonus');
+        //console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
+          } if (num == 2) {
+          console.log('Scoring Algorithm Selected: Scrabble Score');
+          //console.log(`Scoring Result:` scoringAlgorithms[2].scorerFunction(word));
+          } if (num > 2 || num == NaN) {
+            console.log('Incorrect selection. Choose again.');
+            return scorerPrompt();
   }
 
 }
@@ -57,10 +59,10 @@ let scorerPrompt = function(word) {
 // Zox = 19 points using Scrabble, 3 using Simple Score, and 5 using Bonus Vowels.
 
 
-let simpleScore = function(word) {
-  return word.length;
-  console.log(simpleScore(word));
-  
+function simpleScore(word) {
+  for (i = 0; i < word.length; i++) {
+  console.log(word.length);
+  }
 }
 
 // When y forms a diphthong—two vowel sounds joined in one syllable to form one speech sound, such as the "oy" in toy, "ay" in day, and "ey" in monkey—it is also regarded as a vowel.
@@ -97,7 +99,7 @@ function transform() {
 function runProgram() {
    initialPrompt();
    scorerPrompt();
-   
+   simpleScore();
 }
 
 
