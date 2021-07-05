@@ -33,10 +33,12 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+   let word = input.question("Let's play some scrabble! Enter a word:");
 };
 
-let simpleScore;
+
+
+let simpleScore = (word) => word = word.length;
 
 let vowelBonusScore;
 
@@ -52,8 +54,14 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
-   
+   scorerPrompt();
+   transform();
+   simpleScore();
+   vowelBonusScore();
+   scrabbleScore();
+   scoreTotal();
 }
+
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
