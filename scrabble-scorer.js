@@ -1,7 +1,7 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
 
 const input = require("readline-sync");
-
+let word = " ";
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -12,8 +12,10 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
+
+
 function oldScrabbleScorer(word) {
-	word = word.toUpperCase();
+
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
@@ -29,24 +31,58 @@ function oldScrabbleScorer(word) {
 	return letterPoints;
 }
 
+console.log(oldScrabbleScorer());
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let word = input.question("Let's play some scrabble! Enter a word:");
+  console.log("Let's play some scrabble! Enter a word:");
+   word = input.question("Enter a word to score. ");
+   
 };
 
 
+function simpleScore (){
+  //let word = string.length(input);
+}
 
-let simpleScore = (word) => word = word.length;
+function vowelBonusScore(string){
 
-let vowelBonusScore;
+};
 
-let scrabbleScore;
+function scrabbleScore(string){
+
+};
 
 const scoringAlgorithms = [];
 
-function scorerPrompt() {}
+function scorerPrompt() {
+  let simpleMethod = "0 - Simple Soring Method: One point per character";
+  let vowelMethod = "1 - Vowel Bonus Scoring Method: Vowels are worth 3 points";
+  let traditionalMethod = "2 - Traditional Scrabble Soring Method: Uses scrabble point system";
+  let enterScoringMethod = input.question("Enter 0, 1, or 2");
+  console.log(`Which scoring algorithm would you like to use? \n ${simpleMethod} \n ${vowelMethod} \n ${traditionalMethod} \n ${enterScoringMethod}`);
+
+  while (enterScoringMethod === 0) {
+    return simpleScore;
+    console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
+    break;
+  } else if (enterScoringMethod === '1') {
+     return vowelBonusScore;
+      console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
+    break;
+  } else if (enterScoringMethod == '2') {
+    return scrabbleScore;
+    break;
+  } else if (enterScoringMethod > 2 || num == NaN) {
+    console.log('Incorrect selection. Choose again.');
+    return scorerPrompt();
+    break;
+  }
+
+  }
+
+}
 
 function transform() {};
 
@@ -55,11 +91,12 @@ let newPointStructure;
 function runProgram() {
    initialPrompt();
    scorerPrompt();
+   oldScrabbleScorer(word);
    transform();
    simpleScore();
    vowelBonusScore();
    scrabbleScore();
-   scoreTotal();
+   //scoreTotal();
 }
 
 
