@@ -41,7 +41,7 @@ function initialPrompt() {
 
 
 function simpleScore (){
-  //let word = string.length(input);
+  word = string.length(input);
 };
 
 function vowelBonusScore(){
@@ -52,36 +52,36 @@ function scrabbleScore(){
 
 };
 
-const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore;
+const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore];
 
 function scorerPrompt() {
-  let simpleMethod = "0 - Simple Soring Method: One point per character";
-  let vowelMethod = "1 - Vowel Bonus Scoring Method: Vowels are worth 3 points";
-  let traditionalMethod = "2 - Traditional Scrabble Soring Method: Uses scrabble point system";
-  let enterScoringMethod = input.question("Enter 0, 1, or 2");
-  console.log(`Which scoring algorithm would you like to use? \n ${simpleMethod} \n ${vowelMethod} \n ${traditionalMethod} \n ${enterScoringMethod}`);
+    let simpleMethod = "0 - Simple Soring Method: One point per character";
+    let vowelMethod = "1 - Vowel Bonus Scoring Method: Vowels are worth 3 points";
+    let traditionalMethod = "2 - Traditional Scrabble Soring Method: Uses scrabble point system";
+    let enterScoringMethod = input.question("Enter 0, 1, or 2");
+    console.log(`Which scoring algorithm would you like to use? \n ${simpleMethod} \n ${vowelMethod} \n ${traditionalMethod} \n ${enterScoringMethod}`);
 
-  if (enterScoringMethod === 0) {
-    return simpleScore;
-    console.log(`Scoring Result:` scoringAlgorithms[0].scoringFunction(word));
-    break;
-  } if (enterScoringMethod === '1') {
-     return vowelBonusScore;
-      console.log(`Scoring Result:` scoringAlgorithms[1].scoringFunction(word));
-    break;
-  } if (enterScoringMethod == '2') {
-    return scrabbleScore;
-    console.log(`Scoring Result:` scoringAlgorithms[2].scoringFunction(word));
-    break;
-  } else if (enterScoringMethod > 2 || num == NaN) {
-    console.log("Incorrect selection. Choose again.");
-    return scorerPrompt();
-    break;
-  }
-
-  }
-
+    if (enterScoringMethod === 0) {
+        return simpleScore;
+        console.log("Scoring Result: " + scoringAlgorithms[0].scoringFunction(word));
+        break;
+    }
+    if (enterScoringMethod === '1') {
+        return vowelBonusScore;
+        console.log("Scoring Result: " + scoringAlgorithms[1].scoringFunction(word));
+        break;
+    }
+    if (enterScoringMethod == '2') {
+        return scrabbleScore;
+        console.log("Scoring Result: " + scoringAlgorithms[2].scoringFunction(word));
+        break;
+    } else if (enterScoringMethod > 2 || num == NaN) {
+        console.log("Incorrect selection. Choose again.");
+        return scorerPrompt();
+        break;
+    }
 }
+
 
 function transform() {};
 
