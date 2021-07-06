@@ -69,7 +69,7 @@ let scrabbleScore = function(word){
   }
 };
 
-const scoringAlgorithms = [
+let scoringAlgorithms = [
   {
     name:"simpleScore",
     description:"Each letter is worth 1 point."
