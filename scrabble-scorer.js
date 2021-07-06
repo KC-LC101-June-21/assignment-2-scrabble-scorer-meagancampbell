@@ -1,7 +1,7 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
-
 const input = require("readline-sync");
 let word = " ";
+
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -11,8 +11,6 @@ const oldPointStructure = {
   8: ['J', 'X'],
   10: ['Q', 'Z']
 };
-
-
 
 function oldScrabbleScorer(word) {
 
@@ -44,17 +42,17 @@ function initialPrompt() {
 
 function simpleScore (){
   //let word = string.length(input);
-}
+};
 
-function vowelBonusScore(string){
+function vowelBonusScore(){
 
 };
 
-function scrabbleScore(string){
+function scrabbleScore(){
 
 };
 
-const scoringAlgorithms = [];
+const scoringAlgorithms = [simpleScore, vowelBonusScore, scrabbleScore;
 
 function scorerPrompt() {
   let simpleMethod = "0 - Simple Soring Method: One point per character";
@@ -63,19 +61,20 @@ function scorerPrompt() {
   let enterScoringMethod = input.question("Enter 0, 1, or 2");
   console.log(`Which scoring algorithm would you like to use? \n ${simpleMethod} \n ${vowelMethod} \n ${traditionalMethod} \n ${enterScoringMethod}`);
 
-  while (enterScoringMethod === 0) {
+  if (enterScoringMethod === 0) {
     return simpleScore;
-    console.log(`Scoring Result:` scoringAlgorithms[0].scorerFunction(word));
+    console.log(`Scoring Result:` scoringAlgorithms[0].scoringFunction(word));
     break;
-  } else if (enterScoringMethod === '1') {
+  } if (enterScoringMethod === '1') {
      return vowelBonusScore;
-      console.log(`Scoring Result:` scoringAlgorithms[1].scorerFunction(word));
+      console.log(`Scoring Result:` scoringAlgorithms[1].scoringFunction(word));
     break;
-  } else if (enterScoringMethod == '2') {
+  } if (enterScoringMethod == '2') {
     return scrabbleScore;
+    console.log(`Scoring Result:` scoringAlgorithms[2].scoringFunction(word));
     break;
   } else if (enterScoringMethod > 2 || num == NaN) {
-    console.log('Incorrect selection. Choose again.');
+    console.log("Incorrect selection. Choose again.");
     return scorerPrompt();
     break;
   }
