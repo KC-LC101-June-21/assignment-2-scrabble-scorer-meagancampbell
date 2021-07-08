@@ -26,7 +26,6 @@ function oldScrabbleScorer() {
     return letterPoints;
 }
 
-
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
@@ -39,12 +38,10 @@ function initialPrompt() {
   return wordInput;
 };
 
-
 let simpleScore = function(word) {
     let letterPoints = word.length;
     return letterPoints;
 };
-
 
 let vowelBonusScore = function(word) {
   let letterPoints = 0;
@@ -151,12 +148,6 @@ function transform(oldPointStructure) {
     }
     return newPointsObject;
 };
-
-// let newPointStructure = Object.fromEntries(
-//   // convert prices to array, map each key/value pair into another pair
-//   // and then fromEntries gives back the object
-//   Object.entries(prices).map(entry => [entry[0], entry[1] ])
-// );
 
 let newPointStructure = transform(oldPointStructure);
 
