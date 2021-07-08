@@ -1,6 +1,6 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
 const input = require("readline-sync");
-//oldPointStructure Array
+
 
 
 const oldPointStructure = {
@@ -12,7 +12,7 @@ const oldPointStructure = {
     8: ['J', 'X'],
     10: ['Q', 'Z']
 };
-//go into oldPointStructure to find the value of the key/value for each letter and return that to mean the value of 
+
 function oldScrabbleScorer() {
     word = word.toUpperCase();
     letterPoints = "";
