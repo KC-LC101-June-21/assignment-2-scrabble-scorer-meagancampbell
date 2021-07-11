@@ -30,11 +30,13 @@ function oldScrabbleScorer (word) {
  }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
-function initialPrompt(word) {
+function initialPrompt() {
     let userWord = input.question(`Let's play some scrabble!\nPlease enter a word to score: `);
   return userWord;
+  console.log();
+  console.log(userWord);
 };
-let simpleScore = function (word) {
+let simpleScore = function () {
    userWord = userWord.toUpperCase();
    let points = 0;
    for (let i = 0; i < word.length; i++) {
@@ -42,9 +44,9 @@ let simpleScore = function (word) {
     }
     return points;
 }
-let vowelBonusScore = function (word) {
+let vowelBonusScore = function () {
    const vowels = ['A','E','I','O','U'];
-   word = word.toUpperCase();
+   userWord = userWord.toUpperCase();
    let points = 0;
    for (let i = 0; i < word.length; i++) {
       if (vowels.includes(userWord[i])) {
@@ -91,18 +93,20 @@ const scoringAlgorithms = [simpleScoreObj, vowelBonusScoreObj, scrabbleScoreObj]
 
 function scorerPrompt(userWord) {
    console.log(`Which scoring algorithm would you like to use? \n${scoringAlgorithms[0].name}, ${scoringAlgorithms[0].description}\n${scoringAlgorithms[1].name}, ${scoringAlgorithms[1].description}\n${scoringAlgorithms[2].name}, ${scoringAlgorithms[2].description}`);
-   let selection = input.question('Enter 0, 1, or 2:');
-   if (selection == '0') {
-    return scoringAlgorithms[0].scoringFunction(userWord);
-   }
-   if(selection == '1') {
-    return scoringAlgorithms[1].scoringFunction(userWord);
-   }
-   if(selection == '2') {
-    return scoringAlgorithms[2].scoringFunction(userWord);
-   }
-   console.log(`Score for '${word}': `, scoringAlgorithms.number.scoringFunction(userWord))
-}
+   let selection = input.question('Enter 0, 1, or 2: ');
+   while (selection > 0 || selction < 3 ){
+     if (selection === '0') {
+        return  `Score for ${word}:${scoringAlgorithms[0].scoringFunction(word)}`;
+      }
+      if(selection === '1') {
+        return  `Score for ${word}:${scoringAlgorithms[1].scoringFunction(word)}`;
+      }
+      if(selection == '2') {
+        return  `Score for ${word}:${scoringAlgorithms[2].scoringFunction(word)}`;
+      }
+   
+};
+  
 
 
 function transform(oldObject) {
