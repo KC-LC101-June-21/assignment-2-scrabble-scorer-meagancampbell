@@ -1,6 +1,6 @@
 const input = require("readline-sync");
-
-let userWord = "";
+let word = '';
+let userWord = '';
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -14,7 +14,7 @@ const oldPointStructure = {
 
 function oldScrabbleScorer (word) {
 	word = word.toUpperCase();
-	let letterPoints = ''
+	let letterPoints = '';
  
 	for (let i = 0; i < word.length; i++) {
  
@@ -35,7 +35,7 @@ function initialPrompt(word) {
   return userWord;
 };
 let simpleScore = function (word) {
-   word = word.toUpperCase();
+   userWord = userWord.toUpperCase();
    let points = 0;
    for (let i = 0; i < word.length; i++) {
       points += 1;
@@ -87,17 +87,19 @@ let scrabbleScoreObj = {
 
 const scoringAlgorithms = [simpleScoreObj, vowelBonusScoreObj, scrabbleScoreObj];
 
-function scorerPrompt() {
-   console.log(`Which scoring algorithm would you like to use? \n ${scoringAlgorithms[0].name} \n ${scoringAlgorithms[1].name} \n ${scoringAlgorithms[2].name}`);
-   let selection = input.question("Enter 0, 1, or 2: ");
+
+
+function scorerPrompt(userWord) {
+   console.log(`Which scoring algorithm would you like to use? \n${scoringAlgorithms[0].name}, ${scoringAlgorithms[0].description}\n${scoringAlgorithms[1].name}, ${scoringAlgorithms[1].description}\n${scoringAlgorithms[2].name}, ${scoringAlgorithms[2].description}`);
+   let selection = input.question('Enter 0, 1, or 2:');
    if (selection == '0') {
-   return scoringAlgorithms[0].scoringFunction(userWord);
+    return scoringAlgorithms[0].scoringFunction(userWord);
    }
    if(selection == '1') {
-   return scoringAlgorithms[1].scoringFunction(userWord);
+    return scoringAlgorithms[1].scoringFunction(userWord);
    }
    if(selection == '2') {
-   return scoringAlgorithms[2].scoringFunction(userWord);
+    return scoringAlgorithms[2].scoringFunction(userWord);
    }
    console.log(`Score for '${word}': `, scoringAlgorithms.number.scoringFunction(userWord))
 }
