@@ -101,13 +101,11 @@ function scorerPrompt(userWord) {
       if(selection === '1') {
         return  `Score for ${word}:${scoringAlgorithms[1].scoringFunction(word)}`;
       }
-      if(selection == '2') {
+      if(selection === '2') {
         return  `Score for ${word}:${scoringAlgorithms[2].scoringFunction(word)}`;
       }
    
 };
-  
-
 
 function transform(oldObject) {
    let newPointsObject = {}
