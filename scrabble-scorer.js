@@ -1,4 +1,5 @@
 const input = require("readline-sync");
+
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
