@@ -13,10 +13,11 @@ const oldPointStructure = {
 function oldScrabbleScorer (word) {
     word = word.toUpperCase();
     let letterPoints = "";
+
     for(let i = 0; i < word.length; i++) {
         for(const pointValue in oldPointStructure) {
             if(oldPointStructure[pointValue].includes(word[i])) {
-                letterPoints += (`Points for '${word[i]}': ${pointValue}\n`);
+                letterPoints += `Points for '${word[i]}': ${pointValue}\n`;
             }
         }
     }
@@ -27,7 +28,7 @@ function oldScrabbleScorer (word) {
 // don't change the names or your program won't work as expected. //
 function initialPrompt() {
     console.log(`Let's play some scrabble!\n `);
-    let word = (input.question(`Enter a word to score: `)).toUpperCase();
+    let word = input.question(`Enter a word to score: `);
     return word;
 };
 
@@ -35,24 +36,29 @@ function simpleScore (word) {
   word = word.toUpperCase();
   let simpleScore = 0;
     for (let i = 0; i < word.length; i++){
-      simpleScore += 1;
+      simpleScore = i + 1;
     }
     return simpleScore;
 };
 
 
 function vowelBonusScore(word) {
-    word = word.toUpperCase();
-    let vowelsScore = 0;
-    let vowels = ['A','E','I','O','U']
+  let vowels = ['A','E','I','O','U'];
+  let vowelPoints = 3;
+  let vowelScore = 0;
+  let wordArray =[];
+  let vowelWord = word.toUpperCase();
+  wordArray = vowelWord.split('');
     for (let i = 0; i < word.length; i++){
-        if (vowels.includes(word[i].toUpperCase())){
-            vowelsScore += 3;
+        if (vowels.includes(wordArray[i])){
+            vowelScore += 3;
         } else {
-            vowelsScore += 1;
+            vowelScore += 1;
         }
-  }
-  return vowelsScore;
+        }
+    wordArray.join('')
+    vowelWord.toUpperCase();
+    return vowelScore;  
 };
 
 function scrabbleScore (word) {
@@ -108,10 +114,10 @@ function transform(oldPointStructure) {
    for (key in oldPointStructure) { 
     for (i=0; i < oldPointStructure[key].length; i++) {
        let letter = (oldPointStructure[key][i]);
-    newPtObject[letter.toUpperCase()] = key;
+    newPtObject[letter.toUpperCase()] = Number(key);
     }
   }
-  newPtObject[" "] = 0;
+ 
   return newPtObject;
 };
 
