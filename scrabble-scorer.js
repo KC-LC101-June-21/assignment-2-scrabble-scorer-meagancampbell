@@ -10,7 +10,6 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
-
 function oldScrabbleScorer (word) {
     word = word.toUpperCase();
     let letterPoints = "";
