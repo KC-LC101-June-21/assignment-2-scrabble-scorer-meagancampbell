@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jasmine": "^3.6.3",
+    "jasmine": "^3.9.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {}
