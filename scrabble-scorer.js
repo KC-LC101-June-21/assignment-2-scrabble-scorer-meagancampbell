@@ -28,17 +28,12 @@ function oldScrabbleScorer (word) {
 // don't change the names or your program won't work as expected. //
 function initialPrompt() {
     console.log(`Let's play some scrabble!\n `);
-    let word = input.question(`Enter a word to score: `);
-    return word;
+    let prompt = input.question(`Enter a word to score: `);
+    return prompt;
 };
 
 function simpleScore (word) {
-  word = word.toUpperCase();
-  let simpleScore = 0;
-    for (let i = 0; i < word.length; i++){
-      simpleScore = i + 1;
-    }
-    return simpleScore;
+  return word.length;
 };
 
 
@@ -61,14 +56,14 @@ function vowelBonusScore(word) {
     return vowelScore;  
 };
 
-function scrabbleScore (word) {
-    word = word.toUpperCase();
-    let letterPoints = 0;
-    for(let i = 0; i < word.length; i++) {
-        letterPoints += Number(newPointStructure[word[i]])
-    }
-    return letterPoints;
-}
+
+let scrabbleScore = function (word) {
+  let score = 0;
+  for(let i = 0; i < word.length; i++) {
+    score += Number(newPointStructure[word[i]]);
+  }
+  return score;
+};
 
 const scoringAlgorithms = [
     {
@@ -110,11 +105,11 @@ function scorerPrompt(word) {
   }
 
 function transform(oldPointStructure) {
-    let newPtObject = {};
-   for (key in oldPointStructure) { 
-    for (i=0; i < oldPointStructure[key].length; i++) {
-       let letter = (oldPointStructure[key][i]);
-    newPtObject[letter.toUpperCase()] = Number(key);
+  // Loops through each array inside oldPointStructure
+  let newPtObject = {}; // empty array
+  for(let key in oldPointStructure) {
+    for(let i = 0; i < oldPointStructure[key].length; i++) {
+      newPtObject[oldPointStructure[key][i].toLowerCase()] = Number(key);
     }
   }
   return newPtObject;
@@ -128,8 +123,8 @@ let newPointStructure = transform(oldPointStructure);
 // console.log('Pineapple oldScrabbleScorer ' + (sum = 3+1+1+1+1+3+3+1+1+1));
 function runProgram() {
     transform(oldPointStructure);
-    let word = initialPrompt();
-    console.log (scorerPrompt(word));
+    let prompt = initialPrompt();
+    console.log (scorerPrompt(prompt));
     
 };
 
